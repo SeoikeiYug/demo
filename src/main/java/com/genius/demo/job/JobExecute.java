@@ -38,11 +38,11 @@ public class JobExecute implements Runnable {
                 @Override
                 public void run() {
                     while (true) {
-//                        try {
-//                            Thread.sleep(50);
-//                        } catch (InterruptedException e) {
-//                            e.printStackTrace();
-//                        }
+                        try {
+                            Thread.sleep(50);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
 //                        try {
 //                            List<ExceptionController.User> list = new ArrayList<ExceptionController.User>();
 //                            //- 循环创建的实例对象被list引用，所以无法被GC回收
