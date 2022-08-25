@@ -1,9 +1,13 @@
 package com.genius.demo.job;
 
+import com.genius.demo.controller.ExceptionController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -38,6 +42,16 @@ public class JobExecute implements Runnable {
                             Thread.sleep(50);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
+                        }
+                        try {
+                            List<ExceptionController.User> list = new ArrayList<ExceptionController.User>();
+                            //- 循环创建的实例对象被list引用，所以无法被GC回收
+                            for (int i = 0; ; i++) {
+                                System.out.println("轮次：" + i);
+                                list.add(new ExceptionController.User(UUID.randomUUID().toString()));
+                            }
+                        } catch (Exception e) {
+
                         }
                         if (!orderQueue.isEmpty()) {
                             try {
