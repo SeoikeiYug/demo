@@ -34,11 +34,11 @@ public class JobExecute implements Runnable {
                 @Override
                 public void run() {
                     while (true) {
-//                        try {
-//                            Thread.sleep(50);
-//                        } catch (InterruptedException e) {
-//                            e.printStackTrace();
-//                        }
+                        try {
+                            Thread.sleep(50);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                         if (!orderQueue.isEmpty()) {
                             try {
                                 System.out.println(Thread.currentThread().getName() + ", 执行中的JobExecute！执行：" + orderQueue.take());

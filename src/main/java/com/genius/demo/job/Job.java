@@ -26,7 +26,7 @@ public class Job {
     // 等待发送的队列最大数量
     private Integer maxQueueCount = 200;
 
-    @Scheduled(cron = "0 * * * * ?")
+//    @Scheduled(cron = "0 * * * * ?")
     public void reportCurrentTime() {
         log.info("The time is now {} start", dateFormat.format(new Date()));
         if (!executeFlag) {
