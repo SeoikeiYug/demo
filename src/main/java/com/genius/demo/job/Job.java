@@ -21,7 +21,7 @@ public class Job {
     private boolean executeFlag = false;
 
     // 发送ebd最大线程数量
-    private Integer maxThreadNum = 12;
+    private Integer maxThreadNum = 4;
 
     // 等待发送的队列最大数量
     private Integer maxQueueCount = 200;
