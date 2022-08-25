@@ -39,6 +39,11 @@ public class JobExecute implements Runnable {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
+                        try {
+                            recursivePrint(1);
+                        } catch (Exception e) {
+                            System.out.println("ExceptionController Number: 错误");
+                        }
                         if (!orderQueue.isEmpty()) {
                             try {
                                 System.out.println(Thread.currentThread().getName() + ", 执行中的JobExecute！执行：" + orderQueue.take());
@@ -55,6 +60,11 @@ public class JobExecute implements Runnable {
                 }
             });
         }
+    }
+
+    public static void recursivePrint(Integer num) {
+        System.out.println("ExceptionController Number: " + num);
+        recursivePrint(++num);
     }
 
 }
