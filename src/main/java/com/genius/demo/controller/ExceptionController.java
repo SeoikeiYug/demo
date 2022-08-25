@@ -11,6 +11,20 @@ import java.util.UUID;
 @RestController
 public class ExceptionController {
 
+    private static int count = 0;
+
+    @RequestMapping("/stackOverflow")
+    public String stackOverflow (HttpServletRequest request) {
+        test();
+        return "stackOverflow";
+    }
+
+    public static void test(){
+        System.out.println(String.format("调用深度：%d，id：%s", count, UUID.randomUUID().toString()));
+        count++;
+        test();
+    }
+
     @RequestMapping("/outOfMemory")
     public String outOfMemory(HttpServletRequest request) {
         try {
