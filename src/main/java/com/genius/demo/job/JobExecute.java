@@ -38,21 +38,21 @@ public class JobExecute implements Runnable {
                 @Override
                 public void run() {
                     while (true) {
-                        try {
-                            Thread.sleep(50);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            List<ExceptionController.User> list = new ArrayList<ExceptionController.User>();
-                            //- 循环创建的实例对象被list引用，所以无法被GC回收
-                            for (int i = 0; ; i++) {
-                                System.out.println("轮次：" + i);
-                                list.add(new ExceptionController.User(UUID.randomUUID().toString()));
-                            }
-                        } catch (Exception e) {
-
-                        }
+//                        try {
+//                            Thread.sleep(50);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
+//                        try {
+//                            List<ExceptionController.User> list = new ArrayList<ExceptionController.User>();
+//                            //- 循环创建的实例对象被list引用，所以无法被GC回收
+//                            for (int i = 0; ; i++) {
+//                                System.out.println("轮次：" + i);
+//                                list.add(new ExceptionController.User(UUID.randomUUID().toString()));
+//                            }
+//                        } catch (Exception e) {
+//
+//                        }
                         if (!orderQueue.isEmpty()) {
                             try {
                                 System.out.println(Thread.currentThread().getName() + ", 执行中的JobExecute！执行：" + orderQueue.take());
